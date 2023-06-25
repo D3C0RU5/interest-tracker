@@ -13,7 +13,6 @@ class TagsRepo(SQLiteRepo):
 
         return (tag[0], name)
 
-    # __create_tags
     def create(self, name: str):
         self.cursor.execute("""INSERT INTO tags (name) VALUES (?)""", (name,))
         self.connection.commit()
@@ -31,7 +30,6 @@ class TagsRepo(SQLiteRepo):
 
         return tags
 
-    # __relate_tags_to_interest
     def relate_tags_to_interest(self, interest_id: int, tag_id: int):
         self.cursor.execute(
             "INSERT INTO interests_tags VALUES(?, ?)", (interest_id, tag_id)

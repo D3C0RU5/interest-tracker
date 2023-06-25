@@ -2,7 +2,6 @@ from src.repository.sqlite.sqliterepo import SQLiteRepo
 
 
 class InterestRepo(SQLiteRepo):
-    # add_interest
     def create(self, log: str, effort: int):
         self.cursor.execute(
             """ INSERT INTO interests (log, effort) VALUES (?, ?) """,
@@ -14,7 +13,6 @@ class InterestRepo(SQLiteRepo):
 
         return interest_id
 
-    # show_interests
     def list(self):
         show_interests_query = """
             SELECT i.log, i.effort, GROUP_CONCAT(t.name, ',') 

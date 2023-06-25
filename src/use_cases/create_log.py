@@ -12,10 +12,12 @@ class CreateLogUseCase:
 
         for tag in tags:
             result = self.tag_repository.get_by_name(name=tag)
+
             if result is None:
                 tag_id = self.tag_repository.create(name=tag)
             else:
                 tag_id = result[0]
+
             self.tag_repository.relate_tags_to_interest(
                 interest_id=interest_id, tag_id=tag_id
             )

@@ -9,5 +9,4 @@ class ListLogUseCase:
     def handle(self):
         interests = self.interest_repository.list()
 
-        for interest in interests:
-            print(interest)
+        return interests
